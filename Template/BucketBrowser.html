@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Browser</title>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;  /* Darker background */
+            color: #ddd;             /* Lighter text color */
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2em;
+        }
+
+        .item {
+            background-color: #444;  /* Darker box background */
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(255,255,255,0.12), 0 1px 2px rgba(255,255,255,0.24);  /* Lighter shadow */
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .item:hover {
+            box-shadow: 0 14px 28px rgba(255,255,255,0.25), 0 10px 10px rgba(255,255,255,0.22);  /* Lighter shadow */
+        }
+
+        a {
+            color: #ddd;             /* Lighter link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #007BFF;
+        }
+
+        .folder-open-icon,
+        .folder-icon,
+        .file-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+
+        .folder-open-icon {
+            /*noinspection CssUnknownTarget*/
+            background-image: url("https://img.icons8.com/color/24/opened-folder.png");
+        }
+
+        .folder-icon {
+            /*noinspection CssUnknownTarget*/
+            background-image: url("https://img.icons8.com/color/24/folder-invoices--v1.png");
+        }
+
+        .file-icon {
+            /*noinspection CssUnknownTarget*/
+            background-image: url("https://img.icons8.com/color/24/file.png");
+        }
+
+        .list-item {
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {{content|safe}}
+    </div>
+</body>
+</html>
