@@ -1,4 +1,5 @@
 import os
+import sys
 from flask import Flask, redirect, render_template_string
 from b2sdk.v2 import InMemoryAccountInfo
 from b2sdk.v2 import B2Api
@@ -36,4 +37,9 @@ def download_file(path):
     return redirect(authorized_url)
 
 if __name__ == '__main__':
-    app.run(port=8000)
+    if len(sys.argv) != 2:
+        print("Usage: python main.py <ip:port>")
+        sys.exit(1)
+
+    ip, port = sys.argv[1].split(':')
+    app.run(host=ip, port=int(port))
