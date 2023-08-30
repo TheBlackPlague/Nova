@@ -31,10 +31,8 @@ def list_files(path=''):
 
 @app.route('/download/<path:path>')
 def download_file(path):
-    authorization = bucket.get_download_authorization(file_name_prefix=path, valid_duration_in_seconds=60 * 60)
-    download_url = b2_api.get_download_url_for_file_name(bucket.name, path)
-    authorized_url = f"{download_url}?Authorization={authorization}"
-    return redirect(authorized_url)
+    url = "https://nova.shaheryarsohail.com/" + path
+    return redirect(url)
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
